@@ -5,7 +5,7 @@ function navigateTo(section) {
 
 function toggleFavorite(button) {
   button.classList.toggle('favorited');
-  button.textContent = button.classList.contains('favorited') ? '❤️' : '♡';
+  button.textContent = button.classList.contains('favorited') ? '♥' : '♡';
 }
 
 function showImageDescription(text) {
