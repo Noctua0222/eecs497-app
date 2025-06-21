@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Media Hub</title>
+  <title>Sensory Assistance Catalogue</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Media Hub</h1>
+    <h1>Sensory Assistance Catalogue</h1>
     <nav>
       <ul>
-        <li><a href="#" onclick="navigateTo('music')">Music</a></li>
+        <li><a href="#" onclick="navigateTo('music')">Sounds</a></li>
         <li><a href="#" onclick="navigateTo('images')">Images</a></li>
         <li><a href="#" onclick="navigateTo('games')">Games</a></li>
       </ul>
@@ -20,8 +20,8 @@
 
   <main>
     <section id="landing" class="page active">
-      <h2>Welcome to Media Hub</h2>
-      <p>Choose a section to explore: Music, Images, or Games.</p>
+      <h2>Welcome to the Sensory Assistance Catalogue</h2>
+      <p>Choose a section to explore: Sounds, Images, or Games.</p>
     </section>
 
     <section id="music" class="page">
@@ -43,11 +43,11 @@
     <section id="images" class="page">
       <h2>Image Gallery</h2>
       <div class="gallery">
-        <img src="images/cat.png" alt="Cat" onclick="showDescription('A cute cat sitting on a couch.')" />
-        <img src="images/dog.png" alt="Dog" onclick="showDescription('A happy dog and cat being best buddies.')" />
-        <img src="images/flower.png" alt="Flower" onclick="showDescription('Beautiful blooming flowers with birds on them.')" />
+        <img src="images/cat.png" alt="Cat" onclick="showImageDescription('A cute cat sitting on a couch.')" />
+        <img src="images/dog.png" alt="Dog" onclick="showImageDescription('A happy dog and cat being best buddies.')" />
+        <img src="images/flower.png" alt="Flower" onclick="showImageDescription('Beautiful blooming flowers with birds on them.')" />
       </div>
-      <div id="image-overlay" class="overlay" onclick="hideOverlay()">
+      <div id="image-overlay" class="overlay" onclick="hideOverlay('image-overlay')">
         <div class="description-box">
           <p id="image-description"></p>
         </div>
@@ -57,9 +57,9 @@
     <section id="games" class="page">
       <h2>Games</h2>
       <div class="games-list">
-        <div class="game" onclick="showDescription('Puzzle Quest: Solve challenging puzzles to advance!')">Puzzle Quest</div>
-        <div class="game" onclick="showDescription('Memory Match: Test your memory skills with fun patterns!')">Memory Match</div>
-        <div class="game" onclick="showDescription('Reaction Time: See how fast you can click!')">Reaction Time</div>
+        <div class="game" onclick="showGameDescription('Puzzle Quest: Solve challenging puzzles to advance!')">Puzzle Quest</div>
+        <div class="game" onclick="showGameDescription('Memory Match: Test your memory skills with fun patterns!')">Memory Match</div>
+        <div class="game" onclick="showGameDescription('Reaction Time: See how fast you can click!')">Reaction Time</div>
       </div>
       <div id="game-overlay" class="overlay" onclick="hideOverlay('game-overlay')">
         <div class="description-box">
