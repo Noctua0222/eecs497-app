@@ -115,3 +115,107 @@ button.favorited {
 .games-list .game:hover {
   background: #440088;
 }
+
+
+.sound-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.sound-card {
+  background: #220044;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 150px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.sound-card:hover {
+  transform: scale(1.05);
+}
+
+.sound-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.mini-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1f0033;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  z-index: 999;
+}
+
+.mini-player p {
+  margin: 0;
+}
+
+.mini-player button {
+  font-size: 1.2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.sound-card {
+  background: #220044;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 250px;
+  text-align: center;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sound-card button {
+  font-size: 1.3rem;
+  margin: 0 0.3rem;
+}
+
+.favorite.favorited {
+  color: gold;
+}
+
+
+.sound-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.sound-card p {
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+
+.sound-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.sound-card {
+  background: #220044;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}

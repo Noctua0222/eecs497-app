@@ -25,18 +25,55 @@
     </section>
 
     <section id="music" class="page">
-      <h2>Music Player</h2>
-      <div class="playlist">
-        <div class="track">
-          <p>Track 1</p>
-          <audio controls src="music/track1.mp3"></audio>
-          <button onclick="toggleFavorite(this)">♡</button>
+      <h2>Sounds</h2>
+      <div class="sound-grid">
+        <div class="sound-card">
+          <img src="images/bamboo_flutePic.jpg" alt="Bamboo Flute">
+          <p>Bamboo Flute</p>
+          <button onclick="playSound('Bamboo Flute', 'sounds/BambooFluteSound.mp3', this)">▶️</button>
+          <button onclick="toggleFavorite(this)" class="favorite">☆</button>
         </div>
-        <div class="track">
-          <p>Track 2</p>
-          <audio controls src="music/track2.mp3"></audio>
-          <button onclick="toggleFavorite(this)">♡</button>
+        <div class="sound-card">
+          <img src="images/Birds_Chirping.jpg" alt="Birds Chirping">
+          <p>Birds Chirping</p>
+          <button onclick="playSound('Birds Chirping', 'sounds/BirdsSound.mp3', this)">▶️</button>
+          <button onclick="toggleFavorite(this)" class="favorite">☆</button>
         </div>
+        <div class="sound-card">
+          <img src="images/crackling_fire.jpg" alt="Crackling Fire">
+          <p>Crackling Fire</p>
+          <button onclick="playSound('Crackling Fire', 'sounds/CracklingFire.mp3', this)">▶️</button>
+          <button onclick="toggleFavorite(this)" class="favorite">☆</button>
+        </div>
+        <div class="sound-card">
+          <img src="images/Harp.jpg" alt="Harp">
+          <p>Harp</p>
+          <button onclick="playSound('Harp', 'sounds/HarpSound.mp3', this)">▶️</button>
+          <button onclick="toggleFavorite(this)" class="favorite">☆</button>
+        </div>
+        <div class="sound-card">
+          <img src="images/Ocean_waves_pic.jpg" alt="Ocean Waves">
+          <p>Ocean Waves</p>
+          <button onclick="playSound('Ocean Waves', 'sounds/Ocean.mp3', this)">▶️</button>
+          <button onclick="toggleFavorite(this)" class="favorite">☆</button>
+        </div>
+        <div class="sound-card">
+          <img src="images/Piano_with_fire.jpg" alt="Piano with Fire">
+          <p>Piano with Fire</p>
+          <button onclick="playSound('Piano with Fire', 'sounds/PianoFireMusic.mp3', this)">▶️</button>
+          <button onclick="toggleFavorite(this)" class="favorite">☆</button>
+        </div>
+        <div class="sound-card">
+          <img src="images/Rain.jpg" alt="Rain">
+          <p>Rain</p>
+          <button onclick="playSound('Rain', 'sounds/RainSound.mp3', this)">▶️</button>
+          <button onclick="toggleFavorite(this)" class="favorite">☆</button>
+        </div>
+      </div>
+
+      <div id="mini-player" class="mini-player hidden">
+        <p id="now-playing">Now Playing: </p>
+        <button onclick="togglePlayPause()" id="play-pause">⏸️</button>
       </div>
     </section>
 
