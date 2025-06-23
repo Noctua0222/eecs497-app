@@ -11,9 +11,11 @@
     <h1>Sensory Assistance Catalogue</h1>
     <nav>
       <ul>
+        <li><a href="#" onclick="navigateTo('landing')">Home</a></li>
         <li><a href="#" onclick="navigateTo('music')">Sounds</a></li>
         <li><a href="#" onclick="navigateTo('images')">Images</a></li>
         <li><a href="#" onclick="navigateTo('games')">Games</a></li>
+        <li><a href="#" onclick="navigateTo('favorites')">Favorites</a></li>
       </ul>
     </nav>
   </header>
@@ -22,55 +24,27 @@
     <section id="landing" class="page active">
       <h2>Welcome to the Sensory Assistance Catalogue</h2>
       <p>Choose a section to explore: Sounds, Images, or Games.</p>
+      <button onclick="navigateTo('favorites')" style="margin-top: 1rem; font-size: 1rem; padding: 0.5rem 1rem;">
+        ⭐ View Favorites
+      </button>
+    </section>
+
+    <section id="favorites" class="page">
+      <h2>Your Favorites</h2>
+      <div id="favorites-container" class="sound-grid"></div>
     </section>
 
     <section id="music" class="page">
       <h2>Sounds</h2>
-      <div class="sound-grid">
-        <div class="sound-card">
-          <img src="images/bamboo_flutePic.jpg" alt="Bamboo Flute">
-          <p>Bamboo Flute</p>
-          <button onclick="playSound('Bamboo Flute', 'sounds/BambooFluteSound.mp3', this)">▶️</button>
-          <button onclick="toggleFavorite(this)" class="favorite">☆</button>
-        </div>
-        <div class="sound-card">
-          <img src="images/Birds_Chirping.jpg" alt="Birds Chirping">
-          <p>Birds Chirping</p>
-          <button onclick="playSound('Birds Chirping', 'sounds/BirdsSound.mp3', this)">▶️</button>
-          <button onclick="toggleFavorite(this)" class="favorite">☆</button>
-        </div>
-        <div class="sound-card">
-          <img src="images/crackling_fire.jpg" alt="Crackling Fire">
-          <p>Crackling Fire</p>
-          <button onclick="playSound('Crackling Fire', 'sounds/CracklingFire.mp3', this)">▶️</button>
-          <button onclick="toggleFavorite(this)" class="favorite">☆</button>
-        </div>
-        <div class="sound-card">
-          <img src="images/Harp.jpg" alt="Harp">
-          <p>Harp</p>
-          <button onclick="playSound('Harp', 'sounds/HarpSound.mp3', this)">▶️</button>
-          <button onclick="toggleFavorite(this)" class="favorite">☆</button>
-        </div>
-        <div class="sound-card">
-          <img src="images/Ocean_waves_pic.jpg" alt="Ocean Waves">
-          <p>Ocean Waves</p>
-          <button onclick="playSound('Ocean Waves', 'sounds/Ocean.mp3', this)">▶️</button>
-          <button onclick="toggleFavorite(this)" class="favorite">☆</button>
-        </div>
-        <div class="sound-card">
-          <img src="images/Piano_with_fire.jpg" alt="Piano with Fire">
-          <p>Piano with Fire</p>
-          <button onclick="playSound('Piano with Fire', 'sounds/PianoFireMusic.mp3', this)">▶️</button>
-          <button onclick="toggleFavorite(this)" class="favorite">☆</button>
-        </div>
-        <div class="sound-card">
-          <img src="images/Rain.jpg" alt="Rain">
-          <p>Rain</p>
-          <button onclick="playSound('Rain', 'sounds/RainSound.mp3', this)">▶️</button>
-          <button onclick="toggleFavorite(this)" class="favorite">☆</button>
-        </div>
+      <div class="genre-buttons">
+        <button onclick="filterByGenre('All')">All</button>
+        <button onclick="filterByGenre('Nature')">Nature</button>
+        <button onclick="filterByGenre('Instrumental')">Instrumental</button>
+        <button onclick="filterByGenre('Ambient')">Ambient</button>
+        <button onclick="filterByGenre('Calm')">Calm</button>
+        <button onclick="filterByGenre('Soothing')">Soothing</button>
       </div>
-
+      <div class="sound-grid" id="sound-container"></div>
       <div id="mini-player" class="mini-player hidden">
         <p id="now-playing">Now Playing: </p>
         <button onclick="togglePlayPause()" id="play-pause">⏸️</button>
@@ -79,28 +53,38 @@
 
     <section id="images" class="page">
       <h2>Image Gallery</h2>
-      <div class="gallery">
-        <img src="images/cat.png" alt="Cat" onclick="showImageDescription('A cute cat sitting on a couch.')" />
-        <img src="images/dog.png" alt="Dog" onclick="showImageDescription('A happy dog and cat being best buddies.')" />
-        <img src="images/flower.png" alt="Flower" onclick="showImageDescription('Beautiful blooming flowers with birds on them.')" />
+      <div class="genre-buttons">
+        <button onclick="filterImagesByGenre('All')">All</button>
+        <button onclick="filterImagesByGenre('Nature')">Nature</button>
+        <button onclick="filterImagesByGenre('Animals')">Animals</button>
+        <button onclick="filterImagesByGenre('Gestures')">Gestures</button>
+        <button onclick="filterImagesByGenre('Comfort')">Comfort</button>
       </div>
-      <div id="image-overlay" class="overlay" onclick="hideOverlay('image-overlay')">
-        <div class="description-box">
-          <p id="image-description"></p>
+      <div id="image-gallery" class="gallery"></div>
+
+      <div id="image-overlay" class="image-overlay" onclick="hideOverlay('image-overlay')">
+        <div class="description-box" onclick="event.stopPropagation()">
+          <img id="overlay-image" src="" alt="" style="max-width: 90%; max-height: 70vh; border-radius: 10px;" />
+          <p id="image-description" style="margin-top: 1rem;"></p>
+          <button onclick="hideOverlay('image-overlay')">Close</button>
         </div>
       </div>
     </section>
 
     <section id="games" class="page">
       <h2>Games</h2>
-      <div class="games-list">
-        <div class="game" onclick="showGameDescription('Puzzle Quest: Solve challenging puzzles to advance!')">Puzzle Quest</div>
-        <div class="game" onclick="showGameDescription('Memory Match: Test your memory skills with fun patterns!')">Memory Match</div>
-        <div class="game" onclick="showGameDescription('Reaction Time: See how fast you can click!')">Reaction Time</div>
-      </div>
-      <div id="game-overlay" class="overlay" onclick="hideOverlay('game-overlay')">
-        <div class="description-box">
+      <div class="games-list"></div>
+
+      <div id="game-description-overlay" class="overlay" onclick="hideOverlay('game-description-overlay')">
+        <div class="description-box" onclick="event.stopPropagation()">
           <p id="game-description"></p>
+        </div>
+      </div>
+
+      <div id="game-popup" class="overlay" style="display:none;" onclick="closeGame()">
+        <div class="description-box" style="display: flex; flex-direction: column; align-items: center;" onclick="event.stopPropagation()">
+          <iframe id="game-frame" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+          <button onclick="closeGame()" style="margin-top: 1rem;">Close Game</button>
         </div>
       </div>
     </section>

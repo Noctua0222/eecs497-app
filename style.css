@@ -34,13 +34,6 @@ nav ul li a {
   display: block;
 }
 
-.track {
-  margin-bottom: 1.5rem;
-  background: #2d004d;
-  padding: 1rem;
-  border-radius: 10px;
-}
-
 button {
   background: transparent;
   border: none;
@@ -50,87 +43,48 @@ button {
 }
 
 button.favorited {
-  color: red;
+  color: gold;
 }
 
-.gallery img {
-  width: 150px;
-  margin: 1rem;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
-
-.image-overlay {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
+/* === Genre Buttons === */
+.genre-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   justify-content: center;
-  align-items: center;
+  margin-bottom: 1rem;
 }
 
-.image-overlay .description-box {
-  background: #220044;
-  padding: 2rem;
-  border-radius: 15px;
-  max-width: 400px;
-  text-align: center;
-}
-
-.game-overlay {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-  justify-content: center;
-  align-items: center;
-}
-
-.game-overlay .description-box {
-  background: #220044;
-  padding: 2rem;
-  border-radius: 15px;
-  max-width: 400px;
-  text-align: center;
-}
-
-.games-list .game {
-  background: #220044;
-  margin: 1rem;
-  padding: 1rem;
+.genre-buttons button {
+  background: #330066;
+  color: white;
+  border: none;
   border-radius: 10px;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  transition: background 0.3s;
+  font-weight: bold;
 }
 
-.games-list .game:hover {
-  background: #440088;
+.genre-buttons button:hover {
+  background: #550088;
 }
 
-
+/* === Sound Cards === */
 .sound-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.5rem;
   justify-content: center;
+  padding: 1rem;
 }
 
 .sound-card {
   background: #220044;
   border-radius: 12px;
   padding: 1rem;
-  width: 150px;
+  width: 200px;
   text-align: center;
-  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease;
 }
 
@@ -140,9 +94,22 @@ button.favorited {
 
 .sound-card img {
   width: 100%;
+  height: auto;
   border-radius: 10px;
+  margin-bottom: 0.5rem;
 }
 
+.sound-card p {
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+
+.sound-card button {
+  font-size: 1.3rem;
+  margin: 0 0.3rem;
+}
+
+/* === Mini Player === */
 .mini-player {
   position: fixed;
   bottom: 0;
@@ -169,41 +136,8 @@ button.favorited {
   display: none;
 }
 
-.sound-card {
-  background: #220044;
-  border-radius: 12px;
-  padding: 1rem;
-  width: 250px;
-  text-align: center;
-  margin: 1rem auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.sound-card button {
-  font-size: 1.3rem;
-  margin: 0 0.3rem;
-}
-
-.favorite.favorited {
-  color: gold;
-}
-
-
-.sound-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 0.5rem;
-}
-
-.sound-card p {
-  margin: 0.5rem 0;
-  font-weight: bold;
-}
-
-.sound-grid {
+/* === Image Cards === */
+.gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -211,11 +145,146 @@ button.favorited {
   padding: 1rem;
 }
 
-.sound-card {
+.image-card {
   background: #220044;
   border-radius: 12px;
   padding: 1rem;
   width: 200px;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.image-card:hover {
+  transform: scale(1.05);
+}
+
+.image-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.image-card p {
+  margin: 0.5rem 0;
+  font-weight: bold;
+  color: #fff;
+}
+
+.image-card button {
+  font-size: 1.3rem;
+  margin: 0.3rem;
+}
+
+/* === Image Overlay === */
+.image-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.image-overlay .description-box {
+  background: #330066;
+  padding: 2rem;
+  border-radius: 15px;
+  max-width: 400px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.image-overlay .description-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.image-overlay .description-box button {
+  margin-top: 1rem;
+  background: #550088;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.image-overlay .description-box button:hover {
+  background: #7700cc;
+}
+
+/* === Games === */
+.games-list .game {
+  background: #220044;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-align: center;
+  font-weight: bold;
+}
+
+.games-list .game:hover {
+  background: #440088;
+}
+
+/* === Game Overlay === */
+.game-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.game-overlay .description-box {
+  background: #220044;
+  padding: 2rem;
+  border-radius: 15px;
+  max-width: 400px;
+  text-align: center;
+  color: white;
+}
+
+/* Center game popup content */
+#iframe-game-overlay .description-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #1a1a2e;
+  border-radius: 10px;
+}
+
+/* Center the entire popup */
+#iframe-game-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Optional: make iframe responsive */
+#game-frame {
+  width: 80vw;
+  height: 60vh;
+  max-width: 800px;
+  max-height: 600px;
+  border: none;
+  border-radius: 10px;
 }
