@@ -61,34 +61,36 @@
         <button onclick="filterImagesByGenre('Comfort')">Comfort</button>
       </div>
       <div id="image-gallery" class="gallery"></div>
-
-      <div id="image-overlay" class="image-overlay" onclick="hideOverlay('image-overlay')">
-        <div class="description-box" onclick="event.stopPropagation()">
-          <img id="overlay-image" src="" alt="" style="max-width: 90%; max-height: 70vh; border-radius: 10px;" />
-          <p id="image-description" style="margin-top: 1rem;"></p>
-          <button onclick="hideOverlay('image-overlay')">Close</button>
-        </div>
-      </div>
     </section>
 
     <section id="games" class="page">
       <h2>Games</h2>
       <div class="games-list"></div>
-
-      <div id="game-description-overlay" class="overlay" onclick="hideOverlay('game-description-overlay')">
-        <div class="description-box" onclick="event.stopPropagation()">
-          <p id="game-description"></p>
-        </div>
-      </div>
-
-      <div id="game-popup" class="overlay" style="display:none;" onclick="closeGame()">
-        <div class="description-box" style="display: flex; flex-direction: column; align-items: center;" onclick="event.stopPropagation()">
-          <iframe id="game-frame" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-          <button onclick="closeGame()" style="margin-top: 1rem;">Close Game</button>
-        </div>
-      </div>
     </section>
   </main>
+
+  <!-- ✅ Move overlays outside so they work globally -->
+
+  <div id="image-overlay" class="image-overlay" onclick="hideOverlay('image-overlay')">
+    <div class="description-box" onclick="event.stopPropagation()">
+      <img id="overlay-image" src="" alt="" style="max-width: 90%; max-height: 70vh; border-radius: 10px;" />
+      <p id="image-description" style="margin-top: 1rem;"></p>
+      <button onclick="hideOverlay('image-overlay')">Close</button>
+    </div>
+  </div>
+
+  <div id="game-description-overlay" class="overlay" onclick="hideOverlay('game-description-overlay')">
+    <div class="description-box" onclick="event.stopPropagation()">
+      <p id="game-description"></p>
+    </div>
+  </div>
+
+  <div id="game-popup" class="overlay" style="display:none;" onclick="closeGame()">
+    <div class="description-box" style="display: flex; flex-direction: column; align-items: center;" onclick="event.stopPropagation()">
+      <iframe id="game-frame" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+      <button onclick="closeGame()" style="margin-top: 1rem;">Close Game</button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
